@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shopping_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.SearchFragment"
+        android:label="fragment_searach"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_billingFragment2"
+            app:destination="@id/billingFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_allOrdersFragment2"
+            app:destination="@id/allOrdersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" >
+        <argument
+            android:name="product"
+            app:argType="com.nikhilkhairnar.shopsmart.Product" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.AddressFragment"
+        android:label="AddressFragment" >
+        <action
+            android:id="@+id/action_addressFragment_to_billingFragment"
+            app:destination="@id/billingFragment">
+            <argument
+                android:name="products"
+                app:argType="com.nikhilkhairnar.shopsmart.CartProduct[]" />
+            <argument
+                android:name="totalPrice"
+                app:argType="float" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/billingFragment"
+        android:name="com.nikhilkhairnar.shopsmart.shopping.BillingFragment"
+        android:label="BillingFragment" >
+        <action
+            android:id="@+id/action_billingFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <argument
+            android:name="totalPrice"
+            app:argType="float"
+            />
+        <argument
+            android:name="products"
+            app:argType="com.nikhilkhairnar.shopsmart.CartProduct[]" />
+        <action
+            android:id="@+id/action_billingFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.nikhilkhairnar.shopsmart.OrderDetailFragment"
+        android:label="OrderDetailFragment"
+        tools:layout="@layout/fragment_order_detail">
+
+        <argument
+            android:name="order"
+            app:argType="com.nikhilkhairnar.shopsmart.order.Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/allOrdersFragment"
+        android:name="com.nikhilkhairnar.shopsmart.AllOrdersFragment"
+        android:label="AllOrdersFragment" >
+        <action
+            android:id="@+id/action_allOrdersFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+
+
+</navigation>

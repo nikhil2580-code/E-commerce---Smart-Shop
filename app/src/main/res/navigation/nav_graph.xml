@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/introductionFragments">
+
+
+    <fragment
+        android:id="@+id/introductionFragments"
+        android:name="com.nikhilkhairnar.shopsmart.lognRegister.IntroductionFragments"
+        android:label="fragment_introduction_fragments"
+        tools:layout="@layout/fragment_introduction_fragments" >>
+        <action
+            android:id="@+id/action_introductionFragments_to_signUpFragment2"
+            app:destination="@id/signUpFragment2" />
+        <action
+            android:id="@+id/action_introductionFragments_to_loginFragment3"
+            app:destination="@id/loginFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment2"
+        android:name="com.nikhilkhairnar.shopsmart.lognRegister.SignUpFragment"
+        tools:layout="@layout/fragment_signup"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment2_to_loginFragment3"
+            app:destination="@id/loginFragment3" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/loginFragment3"
+        android:name="com.nikhilkhairnar.shopsmart.lognRegister.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment3_to_signUpFragment2"
+            app:destination="@id/signUpFragment2" />
+    </fragment>
+
+</navigation>
